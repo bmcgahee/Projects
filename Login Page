@@ -1,0 +1,21 @@
+<!DOCTYPE HTML> 
+<html> 
+  <head> 
+    <title>LOGIN</title> 
+    <link rel ="stylesheet" type = "text/css" href = "LOGIN.css"> 
+   </head> 
+   <body id = "body-color"> 
+     <div id = "Log-In"> 
+        <fieldset style = "width:30%">
+        <legend><b><i>LOGIN HERE</i></b></legend> 
+           <form method = "POST" action = "connectivity.php"> 
+            <font size = "5">Username</font><br>
+	    <input type = "text" name = "user" size = "40"><br> 
+            <font size = "5">Password</font><br>
+            <input type = "password" name = "pass" size = "40"><br> 
+            <input id = "Button" type = "submit" name = "submit" value = "Submit"> 
+            </form> 
+	</fieldset> 
+      </div> 
+    </body> 
+</html> 
