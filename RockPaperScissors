@@ -1,6 +1,8 @@
 #Author: Ben McGahee
 #Title:  ROCK, PAPER, SCISSORS
 #Date: 8/22/2015
+#Purpose:  This program allows you to 10 sets of rock, paper, and scissors against a computer.
+#The program keeps up with your score, the computer's score, and tells who won the game at the end.
 
 #Import random, time, and easygui modules.
 import random
