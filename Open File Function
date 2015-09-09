@@ -1,0 +1,12 @@
+#This function tries to open the file that a user requests.  
+#The filename parameter needs to be a string enclosed in quotes.
+#If the file name exists, then the function will read the file and print each line.
+#Otherwise, an error message will appear on the screen that says, "Could not open the file."
+
+def openFile(filename):
+    try:
+        file = open(filename)
+        for line in file.readlines():
+            print(line, end = '')
+    except:
+        print("Could not open the file")
