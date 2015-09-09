@@ -1,0 +1,122 @@
+#Author: Ben McGahee
+#Title:  ROCK, PAPER, SCISSORS
+#Date: 8/22/2015
+
+#Import random, time, and easygui modules.
+import random
+import time
+import easygui as e
+
+#Define rock, paper, scissors array.
+gamePlayChoices = ["rock", "paper", "scissors"]
+
+#Set plays and sets values that will be used in the main (while) loop.
+plays = 1
+sets = 10
+
+#Initialize computer and player scores.
+computerScore = 0
+playerScore = 0
+
+#Introduction to the game using sleep method for time delay between messages.
+#Host introduces himself and explains the rules of the game.
+e.msgbox("Welcome to the game of ROCK, PAPER, SCISSORS!  I'm your host, Mr. Art Supplies...")
+time.sleep(5)
+e.msgbox("You and the computer have a chance to play against each other.")
+time.sleep(5)
+e.msgbox("Here are the rules...")
+time.sleep(3)
+e.msgbox("There are 10 sets to this game.  Each set consists of you and the computer choosing to play one of the three objects: rock, paper, scissors.")
+time.sleep(10)
+e.msgbox("If you and the computer choose the same object, then it's a tie and no points are awarded.")
+time.sleep(5)
+e.msgbox("But if you and the computer choose different objects, then either you or the computer wins and gets awarded 1 point.")
+time.sleep(5)
+e.msgbox("Let's see how the objects compare to each other.")
+e.msgbox("Rock crushes scissors (rock beats scissors).")
+e.msgbox("Scissors cuts paper (scissors beats paper).")
+e.msgbox("Paper covers rock (paper beats rock).")
+time.sleep(15)
+e.msgbox("Whoever has the most points at the end of the game wins.")
+e.msgbox("Now let's play ROCK, PAPER, SCISSORS!")
+time.sleep(5)
+
+#The Main While Loop is where the game play takes place.
+#Sleep method is used for time delay between messages.
+while plays <= sets:
+    #Tells the current set to be played.
+    e.msgbox("Time to play set #" +str(plays))
+    time.sleep(5)
+    #Player is asked to play rock, paper, or scissors.
+    player = e.enterbox("rock, paper, or scissors?")
+    #Computer plays rock, paper, or scissors at random.
+    computer = random.choice(gamePlayChoices)
+    e.msgbox("You play: ", player)
+    time.sleep(5)
+    e.msgbox("Computer plays: ", computer)
+    time.sleep(5)
+    #If computer and player play the same object then it's a tie.
+    if computer == player:
+        e.msgbox("It's a tie!")
+    #Player wins in this case and receives 1 point.
+    elif computer == "rock" and player == "paper":
+        e.msgbox("You win!")
+        playerScore += 1
+    #Computer wins in this case and receives 1 point.
+    elif computer == "paper" and player == "rock":
+        e.msgbox("Computer wins!")
+        computerScore += 1
+    #Computer wins in this case and receives 1 point.
+    elif computer == "rock" and player == "scissors":
+        e.msgbox("Computer wins!")
+        computerScore += 1
+    #Player wins in this case and receives 1 point.
+    elif computer == "scissors" and player == "rock":
+        e.msgbox("You win!")
+        playerScore += 1
+    #Player wins in this case and receives 1 point.
+    elif computer == "paper" and player == "scissors":
+        e.msgbox("You win!")
+        playerScore += 1
+    #Computer wins in this case and receives 1 point.
+    elif computer == "scissors" and player == "paper":
+        e.msgbox("Computer wins!")
+        computerScore += 1
+    else:
+        continue
+    #Displays the computer's and player's current scores after the set.
+    e.msgbox("Your current score is: ", playerScore, "points.")
+    time.sleep(3)
+    e.msgbox("The computer's current score is: ", computerScore, "points.")
+    time.sleep(3)
+    #Displays the number of sets left to play in the game.
+    e.msgbox("We have", sets - plays , "sets left in the game.")
+    #Inner While Loop is executed just in case player enters an invalid entry.
+    while player != "rock" and player != "paper" and player != "scissors":
+        e.msgbox("You played an invalid object.  Please play rock, paper, or scissors.")
+        time.sleep(3)
+        player = e.enterbox("rock, paper, or scissors?")
+    #Increments the number of plays by 1.
+    plays += 1
+
+#Conclusion of the game
+#Displays the computer's and player's final scores and tells who won the game.
+e.msgbox("And that is the game!")
+time.sleep(3)
+e.msgbox("Let''s total up the final scores.")
+time.sleep(5)
+e.msgbox("The computer's final score is: ", computerScore)
+time.sleep(3)
+e.msgbox("Your final score is: ", playerScore)
+time.sleep(5)
+if computerScore > playerScore:
+    e.msgbox("Sorry, you lost.  Better luck next time.  The computer wins the game!")
+elif computerScore < playerScore:
+    e.msgbox("You won the game!  Congratulations on beating the machine!")
+else:
+    e.msgbox("It's a tie...I guess a rematch is in order.")
+time.sleep(10)
+e.msgbox("Thank you for playing ROCK, PAPER, SCISSORS.  This is your host Art Supplies with some final words.")
+time.sleep(3)
+e.msgbox("Remember to cover that rock, crush those scissors, and cut the paper.  Goodbye!")
+
