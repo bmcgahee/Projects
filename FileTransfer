@@ -1,0 +1,120 @@
+#Author: Ben McGahee
+#Title:  File Transfer GUI
+#Date:   August 21st, 2015
+
+#import the wxPython, system, random, FileTransfer, sqlite3, and datetime namespaces
+import wx
+import sys
+import random
+from FileTransfer import *
+import sqlite3 as lite
+import datetime
+
+#define the MyFrame class
+class MyFrame(wx.Frame):
+
+    #initialize the MyPanel
+    def __init__(self, *args, **kwargs):
+        super(MyFrame, self).__init__(*args, **kwargs)
+        self.MyPanel()
+
+    #define MyPanel function
+    def MyPanel(self):
+        panel = wx.Panel(self)
+        self.SetBackgroundColour('black')
+
+        #set grid and box sizer
+        hbox = wx.BoxSizer()
+        sizer = wx.GridSizer(3, 3, 3, 3)
+        
+        fileButton = wx.Button(panel, label = 'FILE TRANSFER')
+
+        sizer.AddMany([fileButton])
+     
+        hbox.Add(sizer, 0, wx.ALL, 15)
+        panel.SetSizer(hbox)
+
+        self.SetSize((300, 300))
+        self.SetTitle('FILE TRANSFER APP')
+        self.Centre()
+        self.Show(True)
+
+        fileButton.Bind(wx.EVT_BUTTON, self.ShowFileCheck)
+
+    #define ShowFileCheck function
+    def ShowFileCheck(self, event):
+
+        #each file transfer is assigned a random letter from the English alphabet
+        letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        transferLetter = random.choice(letters)
+        #defines the timestamp in the month-day-year format
+        date = datetime.datetime.now().strftime("%m-%d-%Y")
+        time = datetime.datetime.now().strftime("%H-%M-%S")
+        #file source and destinations
+        source1 = "HomeOffice"
+        source2 = "WorkOffice"
+        destination1 = "WorkOffice"
+        destination2 = "HomeOffice"
+        #connects to the FileBase database
+        connection = lite.connect('FileBase.db')
+
+        #The GUI is running and asks the user if you want to copy and transfer any new or recently edited files in a 24 hour period
+        fileDecisionBox = wx.TextEntryDialog(None, "Do you want to copy and transfer any new or recently edited files?", "FILE COPY/TRANSFER", "ENTER YES OR NO")
+        if fileDecisionBox.ShowModal() == wx.ID_OK:
+            decision = fileDecisionBox.GetValue()
+            if decision == "YES" or decision == "yes" or decision == "Yes":
+                copyTransferFileBox = wx.TextEntryDialog(None, "Do you want to copy and transfer from the HomeOffice or WorkOffice folder?", "FILE FOLDER", "SELECT FOLDER")
+                if copyTransferFileBox.ShowModal() == wx.ID_OK:
+                    folder = copyTransferFileBox.GetValue()
+                    #transfer files from HomeOffice
+                    if folder == "HomeOffice":
+                        workMessage = wx.MessageDialog(None, 'Ok, we are going to copy and transfer files from your Home Office to your Work Office.', 'Copy & Transfer to Work Office', wx.OK)
+                        workMessage.ShowModal()
+                        workTransferMessage = wx.MessageDialog(None, 'Copying and transferring files now...', 'Processing', wx.OK)
+                        workTransferMessage.ShowModal()
+                        homeOfficeFileTransfer()
+                        #connects to TransFile table in FileBase database and displays the transfer letter, source folder, destination folder, and timestamp of
+                        #each file transfer
+                        with connection:
+                            cursor = connection.cursor()
+                            cursor.execute("INSERT INTO TransFile (TransferLetter, SourceFolder, DestinationFolder, Date, Time) VALUES(?,?,?,?,?)", (transferLetter, source1, destination1, date, time))
+                            connection.commit()
+                            cursor.execute("SELECT * FROM TransFile")
+                            records = cursor.fetchall() 
+                            for timeStamp in records:
+                                print (timeStamp)
+                        connection.close()
+
+                    #transfer files from WorkOffice
+                    elif folder == "WorkOffice":
+                        homeMessage = wx.MessageDialog(None, 'Ok, we are going to copy and transfer files from your Work Office to your Home Office.', 'Copy & Transfer to Home Office', wx.OK)
+                        homeMessage.ShowModal()
+                        homeTransferMessage = wx.MessageDialog(None, 'Copying and transferring files now...', 'Processing', wx.OK)
+                        homeTransferMessage.ShowModal()
+                        workOfficeFileTransfer()
+                        #connects to TransFile table in FileBase database and displays the transfer letter, source folder, destination folder, and timestamp of
+                        #each file transfer
+                        with connection:
+                            cursor = connection.cursor()
+                            cursor.execute("INSERT INTO TransFile(TransferLetter, SourceFolder, DestinationFolder, Date, Time) VALUES(?,?,?,?,?)", (transferLetter, source2, destination2, date, time))
+                            connection.commit()
+                            cursor.execute("SELECT * FROM TransFile")
+                            timeStamps = cursor.fetchall()
+                            for timeStamp in timeStamps:
+                                print (timeStamp)
+                        connection.close()
+                        
+                    else:
+                        #Displays error message when user enters an invalid entry.
+                        errorMessage = wx.MessageDialog(None, 'Invalid entry.  Please try again.', 'Error', wx.OK)
+                        errorMessage.ShowModal()
+                
+#main program          
+def main():
+    app = wx.App()
+    MyFrame(None)
+    app.MainLoop()
+         
+if __name__ == '__main__':
+    main()
+
