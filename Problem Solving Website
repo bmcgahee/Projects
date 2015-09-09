@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "utf-8">
+  <title>How To Solve A Word Problem</title>
+  <style type="text/css">.centeredImage {
+    text-align:center;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:0px;
+    }
+   </style>
+   <link rel = "stylesheet" type = "text/css" href = "styles.css" media = "screen">
+   <link rel ="stylesheet" href = "menu.css">
+   <script language = "javascript" src = "menu.js"></script>
+</head>
+<body>
+    <table class="navbar" width="800">
+    <tr>
+      <td class="menuNormal" width="160" onmouseover="expand(this);" 
+      onmouseout="collapse(this);">
+        <p>C4 Menu (Non-Explosive)</p>
+        <div class="menuNormal" width="155">
+          <table class="menu" width="155">
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Calculus</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Chess</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Computers</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Cookies</a>
+            </td></tr>
+          </table>
+        </div>
+      </td>
+     </tr>
+   </table>
+   <section>
+     <h1><i><font color = "440088"><center>HOW TO SOLVE A WORD PROBLEM:  By Ben McGahee</center></font></i></h1>
+   </section>
+   <p class="centeredImage"><img src="Ben.jpg" height="200" width="200"></p>
+    <header>
+    <p> 
+      <h3><u><font color = "ff6600">STEP 1</font></u></h3><h4>Read the problem carefully.</h4>
+    </p>
+    <p>
+       <h3><u><font color = "ff6600">STEP 2</font></u></h3><h4>Identify the known value(s) and unknown value(s) in the problem.</h4>
+    </p>
+    <p>
+       <h3><u><font color = "ff6600">STEP 3</font></u></h3><h4>Declare variables for the unknown value(s) in the problem and set up equation(s).</h4>
+    </p>
+    <p>
+       <h3><u><font color = "ff6600">STEP 4</font></u></h3><h4>Solve the equation(s) for the unknown value(s).</h4>
+    </p>
+    <p>
+       <h3><u><font color = "ff6600">STEP 5</font></u></h3><h4>Check your answer(s) to see if everything makes sense.</h4>
+    </p>
+       <h3><font color = "008800"><i>FOR MORE MATH LESSONS, CLICK ON ANY OF THESE LINKS BELOW.</i></font></h3>
+    </p>
+    </header>
+    <nav>
+      <li><a href = "http://www.math.com"><center><font color = "red">ONLINE MATH WORLD</font></center></a></li>
+      <li><a href = "http://www.purplemath.com"><center><font color = "purple">PURPLE MATH</font></center></a></li>
+      <li><a href = "http://www.khanacademy.org"><center><font color = "yellow">KHAN ACADEMY</font></center></a></li>
+    </nav>
+</body>
+</html>
