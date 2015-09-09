@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Photo Gallery Slideshow</title>
+</head>
+<body bgcolor = "#007744">
+
+  <h1><i><center>Photo Gallery Slideshow</center></i></h1>
+  <h3><center>Check out my comments on these images below.</center></h3>
+  <h4><center>Photo #1: How can I help you today?</center></h4>
+  <h4><center>Photo #2: This feels like I'm on a different planet.</center></h4>
+  <h4><center>Photo #3: I love knight games.</center></h4>
+
+  <script language = "JavaScript">
+
+    var i = 0;
+    var path = new Array(); //sets up array of 3 photos for the slideshow
+     //insert your own image file names in double quotes
+     path[0] = "Ben.jpg";
+     path[1] = "desertknight.jpg";
+     path[2] = "chess.jpg";
+
+     function swapImage() { //function goes through array of 3 photos and swaps them
+
+        document.slide.src = path[i];
+        if(i < path.length - 1) {
+            i++; 
+        }
+        else {
+           i = 0;
+        }
+        setTimeout("swapImage()",3000); //3 second delay between photos
+     }
+
+     window.onload = swapImage; //loads the next photo
+ 
+    </script>
+   <img height = "250" name= "slide" src = "Ben.jpg" width= "250" />
+
+</body>
+</html>
+
+
