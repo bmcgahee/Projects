@@ -1,6 +1,8 @@
 #Author: Ben McGahee
 #Title:  File Transfer GUI
 #Date:   August 21st, 2015
+#Purpose:  This program transfers files that have been recently modified or checked within a 24 hour period 
+#from one folder to another folder.  
 
 #import the wxPython, system, random, FileTransfer, sqlite3, and datetime namespaces
 import wx
