@@ -1,0 +1,97 @@
+#Author: Ben McGahee
+#Title: Press Your Roll
+#Date: 8/18/2015
+#Purpose:  Press Your Roll is a game that lets you play a risk and reward rolling dice game where you roll two dice.
+#Here are the ground rules:
+#You can have up to 12 rolls in the game.
+#If you roll any number besdies 7 or 12 you get points for that number rolled.
+#If you roll a 7 or 12, your score goes back to 0.
+#After each roll, you can choose to roll again or quit.
+#Computer totals your score at the end of the game.
+
+#Import random and time
+import random, time
+
+#Declare global and initialize variables
+global score
+global roll
+score = 0
+roll = 0
+
+#Define function gameRules to state the rules of the game
+def gameRules():
+    print("Your score begins at 0.  You roll two dice.")
+    print("If the sum of the two dice is any number besides a 7 or 12 you get points for the number rolled.  You can choose to roll again if you like or quit.")
+    print("You have up to 12 rolls to get the highest score possible.")
+
+#Define function startGame to begin the game
+def startGame():
+    print("Welcome to Press Your Roll!  Let's begin the game.")
+
+#Define function rollDice to play the game
+def rollDice():
+    global score
+    print("Let's roll the dice!")
+    #10 second delay
+    time.sleep(10)
+    #Two random dice are rolled
+    dice1 = random.randint(1, 6)
+    dice2 = random.randint(1, 6)
+    #Sum of the first and second die
+    add = dice1 + dice2
+    #If sum is not 7 nor 12 then that sum is added to the score and tells the player the number rolled and their current score
+    if add != 7 and add != 12:
+        score = score + add
+        print("You rolled a: " + str(add))
+        time.sleep(5)
+        print("Your current score is: " + str(score))
+    #If the sum is either a 7 or 12 then the player knows what number he/she rolled and their score goes to zero
+    else:
+        score = 0
+        print("You rolled a: " + str(add))
+        print("Your current score is: 0")
+
+
+#Define function endGame to end the game
+def endGame():
+    print("Thank you for playing. Goodbye!")
+    quit
+
+#Start the game
+startGame()
+print("This is how the game works.")
+#Five second delay 
+time.sleep(5)
+#States the game rules
+gameRules()
+#Fifteen second delay
+time.sleep(15)
+#Rolls the dice
+rollDice()
+#While loop executes as long as the player wants to continue playing and is before or on roll 12
+while roll <= 10:
+    #Asks the player if he/she wants to roll again
+    rollMore = input("Roll again? Enter a 'y' for YES or a 'n' for NO ")
+    #If player says "no" then the game ends
+    if rollMore == 'n':
+        break
+    elif rollMore == 'y':
+    #If player says "yes" then the game continues
+        rollDice()
+    else:
+        break
+    #Increment the roll counter by 1
+    roll = roll + 1
+
+#States the player's final score at the end of the game and the game is over
+print("Your final score is: " + str(score))
+endGame()
+
+
+
+    
+
+
+
+    
+    
