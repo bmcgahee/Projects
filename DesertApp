@@ -1,0 +1,73 @@
+#Author:  Ben McGahee
+#Date: August 18th, 2015
+#Title: Desert APP
+#Purpose:  This is a simple GUI that displays information when you click the Date, Temp, and Word buttons.  
+#You can modify the output displayed in the gui by changing the parameters in the Message Dialog methods.  
+
+#import wxPython
+import wx
+
+#define MyFrame class 
+class MyFrame(wx.Frame):
+   
+   #Initialize MyPanel
+    def __init__(self, *args, **kwargs):                                   
+        super(MyFrame, self).__init__(*args, **kwargs)
+        
+        self.MyPanel()
+        
+    #def MyPanel function 
+    def MyPanel(self):   
+ 
+        panel = wx.Panel(self)
+        self.SetBackgroundColour('red')
+        
+        #define the box and grid sizers
+        hbox = wx.BoxSizer()
+        sizer = wx.GridSizer(3, 3, 3, 3)
+ 
+        #define the Date, Temp, and Word buttons
+        dateButton = wx.Button(panel, label ='DATE')
+        tempButton = wx.Button(panel, label ='TEMP')
+        wordButton = wx.Button(panel, label ='WORD')
+ 
+        sizer.AddMany([dateButton, tempButton, wordButton])
+ 
+        hbox.Add(sizer, 0, wx.ALL, 15)
+        panel.SetSizer(hbox)
+ 
+        #Fires the event for all three buttons
+        dateButton.Bind(wx.EVT_BUTTON, self.ShowDate)
+        tempButton.Bind(wx.EVT_BUTTON, self.ShowTemp)
+        wordButton.Bind(wx.EVT_BUTTON, self.ShowWord)
+ 
+        self.SetSize((250, 250))
+        self.SetTitle('Desert App')
+        self.Centre()
+        self.Show(True)
+ 
+    #ShowDate function
+    def ShowDate(self, event):
+        date = wx.MessageDialog(None, 'August 18, 2015', 'Date', wx.OK)
+        date.ShowModal()
+    
+    #ShowTemp function
+    def ShowTemp(self, event):
+        temp = wx.MessageDialog(None, 'Sunny and Hot, 97 degrees', 'Temperature In Tucson, AZ', wx.OK)
+        temp.ShowModal()
+ 
+    #ShowWord function
+    def ShowWord(self, event):
+        quote = wx.MessageDialog(None, 'parse: to analyze the parts of a sentence or structure', 'Word Of The Day', wx.OK)
+        quote.ShowModal()
+
+#Main Program 
+def main():
+   
+    app = wx.App()
+    MyFrame(None)
+    app.MainLoop()   
+ 
+ 
+if __name__ == '__main__':
+    main()
