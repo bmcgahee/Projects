@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trivia Time</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body {
+            background-color: aqua;
+        }
+
+        h1 {
+            font-family: 'Comic Sans MS';
+            text-align: center;
+        }
+
+        p1 {
+            font-family: 'Comic Sans MS';
+            text-align: center;
+        }
+
+        p2 {
+            font-family: 'Comic Sans MS';
+            font-size: medium;
+        }
+
+        p3 {
+            font-family: 'Comic Sans MS';
+            font-size: medium;
+        }
+
+        p4 {
+            font-family: 'Comic Sans MS';
+            font-size: medium;
+        }
+
+        p5 {
+            font-family: 'Comic Sans MS';
+            font-size: medium;
+        }
+
+        p6 {
+            font-family: 'Comic Sans MS';
+            font-size: medium;
+        }
+
+        p7 {
+            font-family: 'Comic Sans MS';
+            font-size: small;
+        }
+
+        footer {
+            font-family: 'Comic Sans MS';
+            font-size: small;
+            margin-left: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1><i>Computer Trivia Time!</i></h1>
+    <p1><h2>Here are some fun trivia questions to test your knowledge of computers.</h2></p1>
+    <p2>
+        1. How many bits are in 1 byte?<br />
+        a) 2<br />
+        b) 4<br />
+        c) 6<br />
+        d) 8
+    </p2><br /><br />
+    <p3>
+        2. Which of the following is NOT a function of the computer?<br />
+        a) input<br />
+        b) process<br />
+        c) output<br />
+        d) all of the above are functions of the computer
+    </p3><br /><br />
+    <p4>
+        3. What does HTML stand for?<br />
+        a)Hypertext Markup Language<br />
+        b)Hypertext Makeup Language<br />
+        c)Hypertext Mirror Language<br />
+        d)Hypertext Monster Language
+    </p4><br /><br />
+    <p5>
+        4. The decimal number 15 can be expressed as what number in binary?<br />
+        a)1011<br />
+        b)1111<br />
+        c)1000<br />
+        d)1101
+    </p5><br /><br />
+    <p6>
+        5. Mark Zuckerberg founded what company in 2004?<br />
+        a) Microsoft<br />
+        b) Oracle<br />
+        c) Facebook<br />
+        d) Dropbox
+    </p6><br /><br />
+    <p7>ANSWERS:  1. d) 2. d) 3. a) 4. b) 5. c)</p7><br /><br />
+    <footer><b>OTHER TRIVIA LINKS</b></footer>
+    <ul>
+        <li><a href="http://www.sporcle.com">SPORCLE</a></li>
+        <li><a href="http://www.funtrivia.com">FUN TRIVIA</a></li>
+        <li><a href="http://www.mentalfloss.com">MENTAL FLOSS</a></li>
+    </ul>
+</body>
+</html>
+
