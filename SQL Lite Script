@@ -1,0 +1,49 @@
+#Author:  Ben McGahee
+#Date: August 16th, 2015
+#Purpose:  This program uses sqlite3 to connect to a SQL database called Rosterbase and creates a table called ROSTER
+#that inserts fictional characters with attributes such as Name, Species, and IQ.
+#The program also executes a SQL query to update the ROSTER table, plus filters and displays specific records from that table.
+
+#Import sqlite3 and abbreviate it as lite
+import sqlite3 as lite
+#Import system
+import sys
+
+#Connect to the database named Rosterbase
+con = lite.connect('Rosterbase.db')
+
+#With the connection, do the following below
+with con:
+    #Define a connection cursor
+    cur = con.cursor()
+    #Drop table ROSTER if it exists
+    cur.execute("DROP TABLE IF EXISTS ROSTER")
+    #Create table ROSTER
+    cur.execute("CREATE TABLE ROSTER(Name TEXT, Species TEXT, IQ INT)")
+    #Insert 3 records into ROSTER 
+    cur.execute("INSERT INTO ROSTER VALUES('Jean-Baptiste Zorg', 'Human', 122)")
+    cur.execute("INSERT INTO ROSTER VALUES('Korben Dallas', 'Meat Popsicle', 100)")
+    cur.execute("INSERT INTO ROSTER VALUES('Ak''not', 'Mangalore', -5)")
+    #Update ROSTER by changing Korben Dallas' species to Human
+    cur.execute("UPDATE ROSTER SET Species = 'Human' WHERE Name = 'Korben Dallas'")
+
+#With the connection, do the following below
+with con:
+    #Define a connection cursor
+    cur = con.cursor()
+    #Select all records whose species is Human in ROSTER and show only their names and IQs
+    records = cur.execute("SELECT Name, IQ FROM ROSTER WHERE Species = 'Human'")
+    #For Loop to go through all the Human records
+    for r in records:
+        #Display all Human records on the screen
+        print r
+
+
+    
+    
+
+
+
+
+
+
