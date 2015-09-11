@@ -1,0 +1,16 @@
+#Author: Ben McGahee
+#Date: 9/11/2015
+#Title: Open File
+
+#This program opens, reads, and print out every line in a text file.
+#When you enter the file you want to open, make sure to treat it as a string
+#by enclosing the file path with double quotes and use double slashes \\
+#for the directories or folders
+def openFile():
+    filename = input("Enter the path for the file you want to open: ")
+    try:
+        file = open(filename, "r")
+        for line in file:
+            print(line)
+    except:
+        print("Could not open the file")
