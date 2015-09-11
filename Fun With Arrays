@@ -1,0 +1,94 @@
+#Author: Ben McGahee
+#Date: 7/10/2015
+#Title: Fun With Arrays
+
+#adds all the odd entries in an array of numbers
+def oddball_sum(array = []):
+    odd_array = []
+    for i in range(0, len(array)):
+        if i%2 == 1:
+            odd_array.append(array[i])
+        else:
+            continue
+    value = sum(odd_array)
+    return value
+
+#adds all the even entries in an array of numbers
+def evenball_sum(array = []):
+    even_array = []
+    for i in range(0, len(array)):
+        if i%2 == 0:
+            even_array.append(array[i])
+        else:
+            continue
+    value = sum(even_array)
+    return value
+
+#returns an array of numbers from the original set of numbers that are divisible by its size
+def len_divides_entry(array = []):
+    divides_array = []
+    for i in range(0, len(array)):
+        if array[i]%len(array) == 0:
+            divides_array.append(array[i])
+        else:
+            continue
+    return divides_array
+
+#removes the first and last characters of any string
+def first_last(string):
+    new_string = string.replace(string[len(string) - 1], "")
+    new_string2 = new_string.replace(new_string[0], "")
+    return new_string2
+
+#takes any name and converts into pig latin
+def piglatin(string):
+    new_string = string + string[0] + "a"
+    new_string2 = new_string.lstrip(string[0])
+    return new_string2
+    
+#removes all vowels from a string
+def disemvowel(string):
+   vowels = ('a', 'e', 'i', 'o', 'u')
+   for char in string:
+       if char in vowels:
+           string = string.replace(char, '')
+   return string
+
+#takes any array of numbers and adds any three consecutive numbers to see if it adds up to 7
+def lucky_sevens(numbers = []):
+        if len(numbers) == 3:
+            s = sum(numbers[0:len(numbers)])
+            if s == 7:
+                return True
+            else:
+                return False
+        if len(numbers) > 3:
+            for i in range(len(numbers)):
+                t = sum(numbers[i:i + 3])
+                if t == 7:
+                    return True
+                if t != 7:
+                    t = 0
+            if t == 7:
+                return True
+            else:
+                return False
+    
+        
+        
+            
+            
+            
+    
+    
+    
+    
+    
+
+   
+        
+
+       
+
+      
+        
