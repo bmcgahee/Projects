@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace DoSomeMath
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Division divide = new Division();
+            divide.DoDivision(1.0, 0.0);
+
+            Console.ReadKey();
+        }
+        
+    }
+}
