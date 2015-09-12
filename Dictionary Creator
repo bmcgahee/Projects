@@ -1,0 +1,39 @@
+#Author: Ben McGahee
+#Date: 7/1/2015
+#Title: Dictionary Creator
+
+print "This program allows you to create your own dictionary."
+print "You can either add a word and its definition.  Enter the letter 'a' to add a word."
+print "Or you can look up a word to see if it exists in the dictionary.  Enter the letter 'l' to look up a word."
+print "Enter any other letter to stop adding and looking up words."
+
+#Initialize dictionary.
+dictionary = {}
+
+#Asks user to add or look up a word.
+add_or_look = raw_input("Add or look up a word (a/l)? ")
+
+#While loop executes if user wants to add or look up a word.
+while add_or_look == "a" or add_or_look == "l":
+  #If user wants to add a word then the user types the word and its definition.
+	#The word is then added to the dictionary.
+    if add_or_look == "a":
+        word = raw_input("Type the word: ")
+        definition = raw_input("Type the definition: ")
+        dictionary[word] = definition
+        print "Word added!"
+	#If user wants to look up a word then the program searches for all the keys in the dictionary.
+	#If the word exists in the dictionary, then the word is printed on the screen.
+	#Otherwise the program will tell the user that the word has not been added to the dictionary.
+    elif add_or_look == "l":
+        word = raw_input("Type the word: ")
+        if word in dictionary.keys():
+            print dictionary[word]
+        else:
+            print "That word isn't in the dictionary yet."
+    else:
+        break #The program breaks out of the loop if the user does not want to add or look up a word in the dictionary.
+    add_or_look = raw_input("Add or look up a word (a/l)? ")	
+#Program prints out the keys and values in the dictionary.
+print dictionary.keys()
+print dictionary.values()
