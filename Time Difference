@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Times
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DateTime today = DateTime.Now;
+            int day = today.Day;
+            DateTime anotherDay = new DateTime(2015, 08, 31);
+            int day2 = anotherDay.Day;
+            int difference = Math.Abs(day2 - day);
+            Console.WriteLine(day);
+            Console.WriteLine(day2);
+            Console.WriteLine(difference);
+        }
+    }
+}
