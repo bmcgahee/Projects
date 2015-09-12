@@ -1,0 +1,55 @@
+#Author: Ben McGahee
+#Date: 9/12/2015
+#Title: Pyramid Builders
+#Purpose:  These functions create silly, but cool pyramids.
+
+#Import the time module
+import time
+
+#Star Pyramid function builds a pyramid of stars using the time.sleep() for a delaying effect.
+#Function tells you how many seconds it took to build the star pyramid.
+def starPyramid():
+   total = 0
+   for i in range(1, 11):
+      time.sleep(i)
+      print("*" * i)
+      total += i
+   print("You just built a star pyramid!")
+   print("The star pyramid was built in " + str(total) + " seconds.")
+
+#Dollar Pyramids function builds two pyramids of dollar signs using the time.sleep() for a delaying effect.
+def dollarPyramids():
+    print("Watch the dollars fall...")
+    time.sleep(5)
+    for i in range(11, -1, -1):
+        print("$" * i)
+    print("Now watch the dollars rise...")
+    time.sleep(5)
+    for i in range(1, 11):
+        print("$" * i)
+    print("That was fun.  Now I feel richer!")
+
+#Polar Pyramid function builds a pyramid of positive and negative signs or electric charges and uses the time.sleep() for a delaying effect.
+#Function also calculates the number of positive and negative charges in the polar pyramid.
+def polarPyramid():
+    print("Time to sprinkle some electric charges in the air.")
+    time.sleep(5)
+    positive = 0
+    negative = 0
+    j = 1
+    k = 1
+    for i in range(1, 11):
+        time.sleep(2)
+        if i % 2 != 0:
+            print("+" * i)
+            positive += 2*j - 1
+            j += 1
+        else:
+            print("-" * i)
+            negative += 2*k
+            k += 1
+    print("There were " + str(positive) + " positive charges" + " and " + str(negative) + " negative charges" + " in the polar pyramid.")
+    print("Benjamin Franklin would have loved this!")
+    
+ 
+ 
