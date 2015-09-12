@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AccessModifiers
+{
+    class Program
+    {
+        class A
+        {
+            public string name;
+            protected string password;
+            internal static double pi = 3.14;
+
+            protected internal void Access()
+            {
+                Console.WriteLine("I want access to the club.");
+            }
+        }
+
+        class B : A
+        {
+
+            private void membersOnly()
+            {
+                Console.WriteLine("This is a private club.  Only members can access this club.");
+            }
+
+            static void Main(string[] args)
+            {
+                A student = new A();
+                student.name = "Timmy";
+                Console.WriteLine("This is " + student.name + " and his favorite number is: " + pi + ".");
+                Console.WriteLine("Here is a message from " + student.name + ".");
+                student.Access();
+                Console.WriteLine("");
+
+                B member = new B();
+                member.name = "Beth";
+                member.password = "abc123";
+                Console.WriteLine("This is " + member.name + "." + " She is a member of this club and her password is " + member.password + ".");
+                Console.WriteLine(member.name + " is a member of this club and she has a message for " + student.name + "." + "\n");
+                member.membersOnly();
+                Console.ReadLine();
+                
+            }
+        }
+    }
+}
