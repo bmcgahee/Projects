@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Format
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void enterButton_Click(object sender, EventArgs e)
+        {
+            double salary = double.Parse(salaryTextBox.Text);
+            int ssNumber = int.Parse(ssNumberTextBox.Text);
+            string result = String.Format("First Name: {0}" + "<br/> Last Name: {1}" + "<br/> Social Security Number:  {2:000-00-0000}" + "<br/> Salary: {3:C}", firstNameTextBox.Text, lastNameTextBox.Text, ssNumber, salary);
+            resultLabel.Text = result;
+        }
+    }
+}
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Format.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        First Name:&nbsp;
+        <asp:TextBox ID="firstNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Last Name:&nbsp;
+        <asp:TextBox ID="lastNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Social Security Number:&nbsp;
+        <asp:TextBox ID="ssNumberTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Salary:&nbsp; <asp:TextBox ID="salaryTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="enterButton" runat="server" OnClick="enterButton_Click" Text="Enter" />
+        <br />
+        <br />
+        <asp:Label ID="resultLabel" runat="server"></asp:Label>
+    
+    </div>
+    </form>
+</body>
+</html>
