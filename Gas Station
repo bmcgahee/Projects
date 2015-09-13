@@ -1,0 +1,43 @@
+#Author: Ben McGahee
+#Date: 6/28/2015
+#Title: Gas Station
+#Purpose: This program asks you the size of your gas tank, how full it is, and the gas mileage.
+#The program calculates if you should get gas now or if you can wait to get gas at the next station.
+
+#Ask user to input the size of gas tank, how full it is, and the gas mileage.
+gas_tank = int(raw_input("How big is your gas tank in liters? "))
+percent_full = int(raw_input("How full is your tank in percent? "))
+gas_mileage = int(raw_input("How many km per liter does your car get? "))
+
+#Calculates a toleerance of plus or minus 5 liters.
+gas_tank_plusfive = gas_tank + 5
+gas_tank_minusfive = gas_tank - 5
+
+#Calculates the amount of gas within a tolerance of 5 liters.
+gas_amount_plusfive = 0.01*percent_full*gas_tank_plusfive
+gas_amount_minusfive = 0.01*percent_full*gas_tank_minusfive
+
+#Calculates the minimum and maximum distance traveled.
+distance_traveled_plusfive = gas_mileage*gas_amount_plusfive
+distance_traveled_minusfive = gas_mileage*gas_amount_minusfive
+
+#Prints out the size of tank, percent full, gas mileage, the minimum and maximum distance the car can travel.
+print "Size of tank:  " + str(gas_tank)
+print "percent full:  " + str(percent_full)
+print "km per liter:  " + str(gas_mileage)
+print "You can travel between " + str(distance_traveled_minusfive) + " km and " + str(distance_traveled_plusfive) + " km"
+
+#Alerts the user that the next gas station is 200 km away.
+print "The next gas station is 200 km away"
+
+#If the distance range is less than 200 km, you need to get gas now.  Otherwise, you can wait for the next gas station.
+if distance_traveled_plusfive <= 200 and distance_traveled_minusfive <= 200:
+    print "Get gas now!"
+else:
+    print "You can wait for the next station."
+    
+    
+
+
+
+
