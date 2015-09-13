@@ -1,0 +1,14 @@
+#Author: Ben McGahee
+#Date: 9/12/2015
+#Title: Reverse String
+#Purpose: This program asks the user to input a string, reverses the string, and prints the reversed string.
+
+#Create empty result string variable
+result = ""
+#Program asks user to enter in any string.
+string = raw_input("Please enter any string: ")
+#For loop starts at the last character of the string and ends at the first character of the string and stores it in the result string.
+for i in range(len(string) - 1, -1, -1):
+    result += string[i]
+#Prints the result string.
+print result
