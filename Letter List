@@ -1,0 +1,22 @@
+#Author: Ben McGahee
+#Date: 7/6/2015
+#Title: Letter List
+#Purpose:  Program asks user to select a letter from the alphabet.
+#If the selected letter belongs to the letters list, then the program tells the user that the letter exists in the list.
+#Otherwise, the program tells the user the letter does not exist in the list.
+
+#List of letters a through e
+letters = ['a', 'b', 'c', 'd', 'e']
+#Program asks the user to select a letter
+letter = raw_input("Select a letter from the alphabet: ")
+#If user selected more than one character or letter then this error message is displayed.
+if len(letter) > 1:
+    print "you selected too many characters or selected character(s) that are not in the alphabet"
+else:
+    #If the letter is found in the letters list, then the program tells the user the letter is found.
+    if letter in letters:
+        print "found " + letter + " in letters"
+    else:
+        #If the letter is not found in the letter list, then the program tells the user the letter is not found.
+        print "did not find " + letter + " in letters"
+    
