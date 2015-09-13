@@ -1,0 +1,16 @@
+#Author: Ben McGahee
+#Date: 8/17/2015
+#Title: Sort Array
+#Purpose: This function takes an array of 6 numbers and sorts them in ascending order.
+
+#sortArray() function
+def sortArray(a, b, c, d, e, f):
+    #The array before sorting
+    beforeArray = [a, b, c, d, e, f]
+    print("Here is the current array of numbers.")
+    print(beforeArray)
+    #sortArray() function sorts the beforeArray to get the afterArray and returns this array.
+    afterArray = sorted(beforeArray)
+    print("Here is the sorted array of numbers in ascending order.")
+    return afterArray
+
