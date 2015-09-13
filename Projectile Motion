@@ -1,0 +1,44 @@
+#Author: Ben McGahee
+#Date: 9/12/2015
+#Title: Projectile Motion
+#Purpose: This program asks the user to enter the initial velocity and angle of a projectile.
+#The program calculates the time when maximum height occured, the maximum height, and the horizontal range of the projectile.
+
+#Import math and time modules.
+import math
+import time
+
+#Ask user to input initial velocity and angle.
+v0 = int(input("Enter initial velocity in meters per second: "))
+angle = int(input("Enter angle in degrees: "))
+
+#Convert angle from degrees to radians.
+rad = (angle * math.pi)/180
+
+#This is the gravity constant
+g = 9.8
+
+#Calculates initial velocity in both the x and y directions.
+v0x = v0*math.cos(rad)
+v0y = v0*math.sin(rad)
+
+#This is the time when maximum height occured and the total flight time.
+t = float(v0y)/g
+tRound = round(t, 2)
+flightTime = round(2*t, 2)
+
+#Here are the formulas for maximum height and horizontal range.
+maxHeight = round(v0y*v0y/float(2*g), 2)
+horizRange = round(v0*v0*2*math.sin(rad)*math.cos(rad)/float(g))
+
+#Prints out the stats of the projectile with a 5 second delay.
+print("Here are the stats of the projectile..." + "\n")
+time.sleep(5)
+print("The maximum height occured at " + str(tRound) + " seconds.")
+print("The total flight time is " + str(flightTime) + " seconds.")
+print("The maximum height was " + str(maxHeight) + " meters.")
+print("The horizontal range was " + str(horizRange) + " meters.")
+
+
+
+
