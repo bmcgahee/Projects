@@ -1,0 +1,21 @@
+#Author: Ben McGahee
+#Date: 9/12/2015
+#Title: Palindrome Function
+#Purpose:  This function can tell whether any given string is a palindrome.  
+#The function returns True if the string is a palindrome.
+#If the string is not a palindrome, then the function returns False.
+#Note: A palindrome is a string (word) that is the same forwards as backwards. e.g. "racecar" is a palindrome
+
+#isPalindrome() function
+def isPalindrome(string):
+    #Create empty result string variable
+    result = ""
+    #For loop starts at the last character of the string and ends at the first character of the string and stores it in the result string.
+    for i in range(len(string) - 1, -1, -1):
+        result += string[i]
+    #If the reverse string equals the original string then the string is a palindrome and returns True.
+    if result == string:
+        return True
+    #If the string is not a palindrome then return False.
+    else:
+        return False
