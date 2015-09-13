@@ -1,0 +1,36 @@
+import sys
+from PyQt4 import QtCore, QtGui, uic
+
+
+#loads GUI file (UI definition)
+form_class = uic.loadUiType("tempconv.ui")[0]
+
+#define MyWindowClass class
+class MyWindowClass(QtGui.QMainWindow, form_class):
+    def __init__(self, parent = None):
+        QtGui.QMainWindow.__init__(self, parent)
+        self.setupUi(self)
+        #binds the event handlers of the Celsius and Fahrenheit buttons
+        self.btnCtoF.clicked.connect(self.btn_CtoF_clicked)
+        self.btnFtoC.clicked.connect(self.btn_FtoC_clicked)
+
+    #event handler for the CtoF button
+    def btn_CtoF_clicked(self):
+        cel = float(self.editCel.text())
+        fahr = cel * 9 / 5.0 + 32
+        self.spinFahr.setValue(int(fahr + 0.5))
+        print 'cel = ', cel, ' fahr = ', fahr
+
+    #event handler for the FtoC button
+    def btn_FtoC_clicked(self):
+        fahr = self.spinFahr.value()
+        cel = (fahr - 32) * 5 / 9.0
+        cel_text = '%.2f' % cel
+        self.editCel.setText(cel_text)
+
+#defines instance of the MyWindowClass and displays the GUI
+app = QtGui.QApplication(sys.argv)
+myWindow = MyWindowClass()
+myWindow.show()
+app.exec_()
+
