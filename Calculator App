@@ -1,0 +1,283 @@
+#Author: Ben McGahee
+#Date: 9/14/2015
+#Title: Calculator App
+#Purpose:  This app allows a user to do multiple calculations from adding, subtracting, multiplying, and dividing two numbers, 
+#raising a number to a power, squaring and cubing numbers, square roots, cube roots, powers of 10, logs, finding the sum from one number to another number,
+#and calculating a tip and final bill.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace CalculatorApp
+{
+    public partial class _default : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        #adds two numbers together
+        protected void addButton_Click(object sender, EventArgs e)
+        {
+            double number1 = double.Parse(number1TextBox.Text);
+            double number2 = double.Parse(number2TextBox.Text);
+            double sum = number1 + number2;
+            resultLabel.Text = number1.ToString() + "+" + number2.ToString() + " = " + sum.ToString();
+        }
+        #subtracts two numbers together
+        protected void subtractButton_Click(object sender, EventArgs e)
+        {
+            double number1 = double.Parse(number1TextBox.Text);
+            double number2 = double.Parse(number2TextBox.Text);
+            double difference = number1 - number2;
+            resultLabel.Text = number1.ToString() + "-" + number2.ToString() + " = " + difference.ToString();
+        }
+        #multiplies two numbers together
+        protected void multiplyButton_Click(object sender, EventArgs e)
+        {
+            double number1 = double.Parse(number1TextBox.Text);
+            double number2 = double.Parse(number2TextBox.Text);
+            double product = number1 * number2;
+            resultLabel.Text = number1.ToString() + "x" + number2.ToString() + " = " + product.ToString();
+        }
+        #divides two numbers together
+        protected void divideButton_Click(object sender, EventArgs e)
+        {
+            double number1 = double.Parse(number1TextBox.Text);
+            double number2 = double.Parse(number2TextBox.Text);
+            if (number2 == 0)
+            {
+                resultLabel.Text = "Undefined operation:  Cannot divide by 0";
+            }
+            else
+            {
+                double quotient = number1 / number2;
+                resultLabel.Text = number1.ToString() + "/" + number2.ToString() + " = " + quotient.ToString();
+            } 
+        }
+        #raises a number to a given power
+        protected void powerButton_Click(object sender, EventArgs e)
+        {
+            double number1 = double.Parse(number1TextBox.Text);
+            double number2 = double.Parse(number2TextBox.Text);
+            if (number1 == 0 && number2 == 0)
+            {
+                resultLabel.Text = "Undefined Operation:  The base and power cannot both be 0";
+            }
+            else
+            {
+                double power = Math.Pow(number1, number2);
+                resultLabel.Text = number1.ToString() + "^" + number2 + " = " + power.ToString();
+            }
+        }
+        #squares a number
+        protected void squareButton_Click(object sender, EventArgs e)
+        {
+            double number = double.Parse(numberTextBox.Text);
+            double square = number * number;
+            answerLabel.Text = number.ToString() + "^2 = " + square.ToString(); 
+        }
+        #cubes a number
+        protected void cubeButton_Click(object sender, EventArgs e)
+        {
+            double number = double.Parse(numberTextBox.Text);
+            double cube = number * number * number;
+            answerLabel.Text = number.ToString() + "^3 = " + cube.ToString();
+        }
+        #takes the square root of a number
+        protected void squareRootButton_Click(object sender, EventArgs e)
+        {
+            double number = double.Parse(numberTextBox.Text);
+            double sqRoot = Math.Sqrt(number);
+            if (number < 0)
+            {
+                answerLabel.Text = "Domain Error: Choose a number greater than or equal to 0";
+            }
+            else
+            {
+                answerLabel.Text = "Sqrt(" + number.ToString() + ") = " + sqRoot.ToString();
+            }
+        }
+        #takes cube root of a number
+        protected void cubeRootButton_Click(object sender, EventArgs e)
+        {
+            
+            double number = double.Parse(numberTextBox.Text);
+            double cubeRoot = Math.Pow(number, 1/3d);
+            answerLabel.Text = "Cbrt(" + number.ToString() + ") = " + cubeRoot.ToString();
+            if (number < 0)
+            {
+                double negativeNumber = -number;
+                double negativeCubeRoot = Math.Pow(negativeNumber, 1 / 3d);
+                answerLabel.Text = "Cbrt(-" + negativeNumber.ToString() + ") = -" + negativeCubeRoot.ToString();
+            }
+        }
+        #takes the reciprocal of a number
+        protected void reciprocalButton_Click(object sender, EventArgs e)
+        {
+            double number = double.Parse(numberTextBox.Text);
+            if (number == 0)
+            {
+                answerLabel.Text = "0 does not have a reciprocal";
+            }
+            else if (number < 0)
+            {
+                answerLabel.Text = "Reciprocal of " + number.ToString() + " = -1/ " + Math.Abs(number).ToString();
+            }
+            else
+            {
+                answerLabel.Text = "Reciprocal of " + number.ToString() + " = 1 / " + number.ToString();
+            } 
+        }
+        #raises a number to a power of 10
+        protected void powerOf10Button_Click(object sender, EventArgs e)
+        {
+            double number = double.Parse(numberTextBox.Text);
+            double tenPower = Math.Pow(10.0, number);
+            answerLabel.Text = "10^" + number.ToString() + " = " + tenPower.ToString();
+        }
+        #takes the standard log of a number
+        protected void logButton_Click(object sender, EventArgs e)
+        {
+            double number = double.Parse(numberTextBox.Text);
+            double log = Math.Log10(number);
+            answerLabel.Text = "log(" + number.ToString() + ") = " + log.ToString();
+            if (number <= 0)
+            {
+                answerLabel.Text = "Domain Error: Undefined";
+            }
+        }
+        #find the sum of the numbers between two numbers start and end
+        protected void sumButton_Click(object sender, EventArgs e)
+        {
+            int start = int.Parse(startTextBox.Text);
+            int end = int.Parse(endTextBox.Text);
+            int count = end - start + 1;
+            int sum = (count * (start + end))/2;
+            sumLabel.Text = "Sum from " + start.ToString() + " to " + end.ToString() + " = " + sum.ToString();
+        }
+        #calculates the tip and final bill
+        protected void tipButton_Click(object sender, EventArgs e)
+        {
+            double bill = double.Parse(billTextBox.Text);
+            double percent = double.Parse(percentTextBox.Text);
+            double percentDecimal = percent / 100.0;
+            double tip = bill * percentDecimal;
+            double tipDollar = Math.Round(tip, 2);
+            double finalBill = bill + tipDollar;
+            billLabel.Text = "You owe a tip of " + "$" + tipDollar.ToString() + ". " + "Your final bill is " + "$" + finalBill.ToString() + ".";
+        }
+
+    }
+}
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="CalculatorApp._default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="auto-style1">
+    
+        <div>
+            <h1>Calculator App</h1>
+            <p>
+                Note:&nbsp; 
+                Click on any of the buttons to add, subtract, multiply, divide, or do a power.&nbsp; For the power button, Number 1 is the base and Number 2 is the power.&nbsp;
+            </p>
+            <div>
+                Number 1:&nbsp; <asp:TextBox ID="number1TextBox" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                Number 2:&nbsp; <asp:TextBox ID="number2TextBox" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Button ID="addButton" runat="server" OnClick="addButton_Click" Text="Add" />
+                <asp:Button ID="subtractButton" runat="server" OnClick="subtractButton_Click" Text="Subtract" />
+                <asp:Button ID="multiplyButton" runat="server" OnClick="multiplyButton_Click" Text="Multiply" />
+                <asp:Button ID="divideButton" runat="server" OnClick="divideButton_Click" Text="Divide" />
+                <asp:Button ID="powerButton" runat="server" OnClick="powerButton_Click" Text="Power" />
+                <br />
+                <br />
+                <asp:Label ID="resultLabel" runat="server"></asp:Label>
+                <br />
+                <br />
+                Note:&nbsp; Enter the value into the Number text box and click on the Square, Cube, Square Root, Cube Root, and Reciprocal buttons.<br />
+                <br />
+                Number:&nbsp;
+                <asp:TextBox ID="numberTextBox" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Button ID="squareButton" runat="server" OnClick="squareButton_Click" Text="Square" />
+                <asp:Button ID="cubeButton" runat="server" OnClick="cubeButton_Click" Text="Cube" />
+                <asp:Button ID="squareRootButton" runat="server" OnClick="squareRootButton_Click" Text="Square Root" />
+                <asp:Button ID="cubeRootButton" runat="server" OnClick="cubeRootButton_Click" Text="Cube Root " />
+                <asp:Button ID="reciprocalButton" runat="server" Text="Reciprocal" OnClick="reciprocalButton_Click" />
+                <asp:Button ID="powerOf10Button" runat="server" OnClick="powerOf10Button_Click" Text="Power of 10" />
+                <asp:Button ID="logButton" runat="server" OnClick="logButton_Click" Text="Log" />
+                <br />
+                <br />
+                <asp:Label ID="answerLabel" runat="server"></asp:Label>
+                <br />
+                <br />
+                Note: Find the sum from the starting number to the ending number.&nbsp;
+                <br />
+                <br />
+                Start:&nbsp;
+                <asp:TextBox ID="startTextBox" runat="server"></asp:TextBox>
+&nbsp;<br />
+                <br />
+                End:&nbsp;
+                <asp:TextBox ID="endTextBox" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Button ID="sumButton" runat="server" OnClick="sumButton_Click" Text="Sum" />
+                <br />
+                <br />
+                <asp:Label ID="sumLabel" runat="server"></asp:Label>
+                <br />
+                <br />
+                Note:&nbsp; Enter the bill and percent to calculate the tip.<br />
+                <br />
+                Bill: $
+                <asp:TextBox ID="billTextBox" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                Percent:&nbsp;
+                <asp:TextBox ID="percentTextBox" runat="server"></asp:TextBox>
+                %<br />
+                <br />
+                <asp:Button ID="tipButton" runat="server" OnClick="tipButton_Click" Text="Calculate Tip" />
+                <br />
+                <br />
+                <asp:Label ID="billLabel" runat="server"></asp:Label>
+                <br />
+            </div>
+            <p>
+                &nbsp;</p>
+        </div>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+    
+    </div>
+    </form>
+</body>
+</html>
