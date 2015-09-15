@@ -5,11 +5,13 @@ Below are some of my favorite projects:
 
 #1.  Rock, Paper, Scissors 
      Language: Python
-     Description:  This programs allows you to play 10 sets of rock, paper, scissors against the computer.  The program keeps      up with your score and the computer's score.  At the end of the game, the program tells who wins.  
+     Description:  This programs allows you to play 10 sets of rock, paper, scissors against the computer.  
+     The program keeps up with your score and the computer's score.  At the end of the game, the program tells who wins.  
      
 #2.  Projectile Motion
      Language: Python
-     Description:  This program asks the user to enter in the initial velocity and angle respect to the ground and calculates      the time when maximum height occured, the maximum height, and the horizontal range of the projectile.  
+     Description:  This program asks the user to enter in the initial velocity and angle respect to the ground and 
+     calculate the time when maximum height occured, the maximum height, and the horizontal range of the projectile.  
      
 #3.  File Transfer
      Language: Python
