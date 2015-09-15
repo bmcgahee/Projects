@@ -1,0 +1,56 @@
+#Author: Ben McGahee
+#Date: 7/4/2015
+#Title:  Fourth of July Trivia Quiz
+#Purpose:  This is a trivia game you can play to celebrate Independence Day.  Enjoy!
+
+import easygui
+score = 0
+easygui.msgbox("Welcome to the Fourth of July Trivia Quiz!")
+easygui.msgbox("For every question you get correct, you gain 10 points.\n For every question you get incorrect, you lose 5 points.")
+question1 = easygui.buttonbox("Question 1:  In what year did America declare its independence?",
+                              choices = ["1773", "1775", "1776", "1779"])
+if question1 == "1776":
+    easygui.msgbox("You are correct!")
+    score = score + 10
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+else:
+    easygui.msgbox("That is incorrect.")
+    score = score - 5
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+question2 = easygui.buttonbox("Question 2: Who wrote the Star Spangled Banner?",
+                              choices = ["Benjamin Franklin", "Francis Scott Key", "John Wesley", "Nathaniel Hawthorne"])
+if question2 == "Francis Scott Key":
+    easygui.msgbox("You are correct!")
+    score = score + 10
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+else:
+    easygui.msgbox("That is incorrect.")
+    score = score - 5
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+question3 = easygui.buttonbox("Question 3: Which state is NOT one of the original 13 colonies?",
+                              choices = ["Alabama", "Georgia", "South Carolina", "Pennsylvania"])
+if question3 == "Alabama":
+    easygui.msgbox("You are correct!")
+    score = score + 10
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+else:
+    easygui.msgbox("That is incorrect.")
+    score = score - 5
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+question4 = easygui.buttonbox("Question 4: In what city did the British surrender to the colonists at the end of the Revolutionary War?",
+                               choices = ["Richmond", "Saratoga", "Philadelphia", "Yorktown"])
+if question4 == "Yorktown":
+    easygui.msgbox("You are correct!")
+    score = score + 10
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+else:
+    easygui.msgbox("That is incorrect.")
+    score = score - 5
+    easygui.msgbox("Your current score is: " + str(score) + "pts.")
+if 35 <= score <= 40:
+    easygui.msgbox("Congratulations patriot!  Your final score is: " + str(score) + " points.")
+else:
+    easygui.msgbox("Better luck next time, pinhead.  Your final score is: " + str(score) + " points.")
+easygui.msgbox("Thank you for playing the Fourth of July Trivia Quiz.")
+easygui.msgbox("ENJOY YOUR FREEDOMS!")
+ 
