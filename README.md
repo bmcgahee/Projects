@@ -17,7 +17,7 @@ Below are some of my favorite projects:
      Language: Python
      Description:  This GUI program asks the user if he or she wants to check and/or transfer files.
      The user can select which folder the files need to be transferred from and the folder the files needs to   
-     transfer to. After the files are transferred, the user is provided with some information such as a letter assigned for       the file transfer, the source folder, the destination folder, and the time stamp when the file transfer occured.  
+     transfer to. After the files are transferred, the user is provided with some information about the file transfer.
 
 #4.  Calculator App
      Languages: C# and ASP.NET in Visual Studio 
