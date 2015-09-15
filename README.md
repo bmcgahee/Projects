@@ -3,17 +3,17 @@ This repository contains projects that I have worked on during software developm
 
 Below are some of my favorite projects:
 
-#1:  Title: Rock, Paper, Scissors 
+#1:  Rock, Paper, Scissors 
      Language: Python
      Description:  This programs allows you to play 10 sets of rock, paper, scissors against the computer.  The program keeps up
      with your score and the computer's score.  At the end of the game, the program tells who wins.  
      
-#2:  Title: Projectile Motion
+#2:  Projectile Motion
      Language: Python
      Description:  This program asks the user to enter in the initial velocity and angle respect to the ground and calculates 
      the time when maximum height occured, the maximum height, and the horizontal range of the projectile.  
      
-#3:  Title: File Transfer
+#3:  File Transfer
      Language: Python
      Description:  This GUI program asks the user if he or she wants to check and/or transfer files from one folder to another.
      The user can select which folder the files need to be transferred from and the folder the files needs to transferred to.
