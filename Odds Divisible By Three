@@ -1,0 +1,30 @@
+#Author: Ben McGahee
+#Date: 9/21/2015
+#Title: Odds Divisible By Three
+#Purpose: This program asks the user how many natural numbers they want the computer to search.
+#The program displays all of the odd natural numbers that are divisible by 3 and finds the sum of those numbers.
+
+#Initalize the odds and total variables to count and sum up the number of odd numbers that are divisible by 3.
+odds = 0
+total = 0
+
+#Computer asks the user to input the amount of natural numbers that will be searched.
+numbers = int(raw_input("How many natural numbers do you want to search? "))
+
+#While loop executes if user enters in a number less than or equal to zero.
+while numbers <= 0:
+    numbers = int(raw_input("How many natural numbers do you want to search? "))
+    
+print "Here are odd the numbers from 1 to " + str(numbers) + " that are divisible by 3"
+
+#For loop searches all odd numbers that are divisible by 3, displays them and finds their sum.
+for i in range(1, numbers + 1):
+    if i % 3 == 0 and i % 2 == 1:
+        print i
+        odds += 1
+        total += i
+
+#Prints the amount of odd numbers that are divisible by 3 and their sum.
+print "The total amount of odd numbers from 1 to " + str(numbers) + " that are divisible by 3 is: " + str(odds)
+print "The sum of the odd numbers from 1 to " + str(numbers) + " that are divisible by 3 is: " + str(total)
+
