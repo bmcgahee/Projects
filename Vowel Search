@@ -1,0 +1,66 @@
+#Author: Ben McGahee
+#Date: 9/22/2015
+#Title: Vowel Search
+#Purpose:  This program searches for any vowels in a string and displays the letter and position of each vowel, and displays the total number of vowels.
+
+#User is asked to input a string.
+string = raw_input("Enter a word, phrase, or sentence: ")
+
+#Initialize the vowel count variables.
+aCount = 0
+eCount = 0
+iCount = 0
+oCount = 0
+uCount = 0
+
+#For loop goes through the entire string and counts the number of each vowel that occurs.
+for i in range(0, len(string)):
+    if string[i] == "a":
+        aCount += 1
+    if string[i] == "e":
+        eCount += 1
+    if string[i] == "i":
+        iCount += 1
+    if string[i] == "o":
+        oCount += 1
+    if string[i] == "u":
+        uCount += 1
+
+#Initialize index variable
+index = 0
+
+#While loop searches for each vowel in the string, finds the position of each vowel
+while index < len(string):
+    aIndex = string.find('a', index)
+    eIndex = string.find('e', index)
+    iIndex = string.find('i', index)
+    oIndex = string.find('o', index)
+    uIndex = string.find('u', index)
+    if index == -1:
+        break
+    if string[index] == 'a':
+        print "Found an  a at position #" + str(aIndex)
+    if string[index] == 'e':
+        print "Found an e at position #" + str(eIndex)
+    if string[index] == 'i':
+        print "Found an i at position #" + str(iIndex)
+    if string[index] == 'o':
+        print "Found an o at position #" + str(oIndex)
+    if string[index] == 'u':
+        print "Found a u at position #" + str(uIndex)
+    index += 1
+
+#vowels totals up the number of vowels found in the string.    
+vowels = aCount + eCount + iCount + oCount + uCount
+
+#Prints the number of vowels in the string.
+print "There are " + str(vowels) + " vowels in the string"
+
+#Prints the number of a's, e's, i's, o's, and u's in the string.
+print "Number of a's: " + str(aCount)
+print "Number of e's: " + str(eCount)
+print "Number of i's: " + str(iCount)
+print "Number of o's: " + str(oCount)
+print "Number of u's: " + str(uCount)
+
+
