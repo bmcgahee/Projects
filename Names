@@ -1,0 +1,51 @@
+#Author: Ben McGahee
+#Date: 9/22/2015
+#Title: Names
+#Purpose:  This program asks the user to enter in five names, and then asks which name it wants to replace 
+#by entering in a number between 1-5, where 1 is the first name, 2 is the second name, 3 is the third name,
+#4 is the fourth name, and 5 is the fifth name.  The user enters in the new name and the list of names is
+#updated with the new name.
+
+#Initalize empty names list
+names = []
+
+#User is prompted to enter 5 names
+print "Enter 5 names (press the Enter key after each name): "
+
+#For loop asks the user to enter 5 names and each name is appended to the list
+for i in range(5):
+    name = raw_input()
+    names.append(name)
+    
+#prints out the 5 names
+print "The names are ", names
+
+#User is asked which name to be replace
+replace_name = int(raw_input("Replace one name.  Which one? (1-5): "))
+
+#While loop executes if the user does not enter in a number between 1 and 5
+while replace_name != 1 and replace_name != 2 and replace_name != 3 and replace_name != 4 and replace_name != 5:
+    replace_name = int(raw_input("Replace one name.  Which one? (1-5): "))
+
+#Deletes the name that needs to be replaced    
+del names[replace_name - 1]
+
+#Asks the user to input the new name
+new_name = raw_input("New name: ")
+
+#New name is inserted into the list
+names.insert(replace_name - 1, new_name)
+
+#Prints out the updated list of names
+print "The names are ", names
+
+
+
+
+
+
+
+
+    
+
+    
