@@ -1,0 +1,25 @@
+//This is a template for an array that has m rows and n columns.
+
+//Choose positive integer values for m and n to define the number of rows and columns respectively.
+int rows = m;
+int columns = n;
+
+//Declare array and enter in the values
+string[,] array = new string[rows, columns];
+array[0, 0] = "entry goes here";
+array[0, 1] = "entry goes here";
+array[1, 0] = "entry goes here";
+array[1, 1] = "entry goes here";
+//And so on...
+
+//Nested for loop prints out each entry of the array in row and column format.
+for(int i = 0; i < rows; i++)
+{
+    for(int j = 0; j < columns; j++)
+    {
+      Console.Write(string.Format("{0} ", array[i, j]));
+    }
+      //Starts next row on new line.
+      Console.Write(Environment.NewLine + Environment.NewLine);
+ }
+Console.ReadLine();
