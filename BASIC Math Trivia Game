@@ -1,0 +1,49 @@
+Author: Ben McGahee
+Date: 9/30/2015
+Title: Math Trivia Game
+Purpose: This program allows you to play a math trivia game.  There are five questions for you to answer.
+Each correct answer will get you 1 point.  The program keeps up with the total score.  
+
+score = 0
+PRINT "Welcome to the Math Trivia Game!"
+INPUT "Question 1: Is pi a rational or irrational number? ", answer1$
+IF answer1$ = "irrational" THEN
+    PRINT "You are correct!"
+    score = score + 1
+ELSE
+    PRINT "That is incorrect."
+END IF
+PRINT "SCORE: "; score
+INPUT "Question 2: (True or False) The number 123456 is divisible by 3. ", answer2$
+IF answer2$ = "True" THEN
+    PRINT "You are correct!"
+    score = score + 1
+ELSE
+    PRINT "That is incorrect."
+END IF
+PRINT "SCORE: "; score
+INPUT "Question 3: What is the sum of 1 + 2 + ... + 99 + 100? ", answer3$
+IF answer3$ = "5050" THEN
+    PRINT "You are correct!"
+    score = score + 1
+ELSE
+    PRINT "That is incorrect."
+END IF
+PRINT "SCORE: "; score
+INPUT "Question 4: Which English mathematician invented The Calculus? ", answer4$
+IF answer4$ = "Isaac Newton" THEN
+    PRINT "You are correct!"
+    score = score + 1
+ELSE
+    PRINT "That is incorrect."
+END IF
+PRINT "SCORE: "; score
+INPUT "Question 5: Which branch of mathematics is the study of shapes such as circles, triangles, and squares? ", answer5$
+IF answer5$ = "geometry" THEN
+    PRINT "You are correct!"
+    score = score + 1
+ELSE
+    PRINT "That is incorrect."
+END IF
+PRINT "SCORE: "; score
+PRINT "GAME OVER...Thanks for playing!"
