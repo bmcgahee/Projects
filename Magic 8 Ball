@@ -1,0 +1,48 @@
+#Author: Ben McGahee
+#Title: Magic 8 Ball
+#Date: 10/4/2015
+#Purpose:  This simple GUI program simulates the famous Magic 8 Ball that is sold in toy stores.
+#Ask the Magic 8 Ball yes or no questions, shake it, and then it will provide you with a random answer.  
+
+#Import the random, time, and easygui modules.
+import random
+import time
+import easygui as e
+
+#Magic 8 Ball list of potential answers.
+magicEightBall = ["Yes", "No", "Maybe", "Don't even count on it!", "No way!", "You can't be serious!", "Not even close.", "You betcha!"]
+
+#Asks the user to input a yes or no question.
+question = e.enterbox("Ask a yes or no question:")
+
+#answer stores the Magic 8 Ball's random answer to the question asked.
+answer = random.choice(magicEightBall)
+
+#Asks the user to share the Magic 8 Ball.  
+shake = e.msgbox("Please shake the Magic 8 Ball")
+
+#5 second delay
+time.sleep(5)
+
+#Displays the Magic 8 Ball's answer to the question.
+finalAnswer = e.msgbox(answer)
+
+#Ask the user if he or she would like to ask another question.
+askAgain = e.enterbox("Would you like to ask another queston?")
+
+#While loop executes if the answer is yes or Yes.
+#User continues to ask questions to the Magic 8 Ball as long as they agree to ask another question.
+while askAgain == "yes" or askAgain == "Yes":
+    question = e.enterbox("Ask a yes or no question:")
+    answer = random.choice(magicEightBall)
+    shake = e.msgbox("Please shake the Magic 8 Ball")
+    time.sleep(5)
+    finalAnswer = e.msgbox(answer)
+    askAgain = e.enterbox("Would you like to ask another question?")
+    
+#Displays a thank you message when the user is finished playing with the Magic 8 Ball.
+e.msgbox("Thank you for using the Magic 8 Ball!")
+
+    
+
+    
