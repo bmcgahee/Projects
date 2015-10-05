@@ -1,0 +1,59 @@
+'Author: Ben McGahee
+'Title: Quazar
+'Date: 10/4/2015
+'Purpose:  This program allows you to have a conversation with Quazar, the talking computer.
+
+'Quazar introduces itself to you and provides you the ground rules for communicating with him in this program.
+PRINT "I am Quazar, the talking computer."
+PRINT "You can talk to me as long as you like."
+PRINT "Please understand that my responses may not always be appropriate, but I will do my best to have a conversation with you."
+PRINT "When you are finished talking, please say 'I have to leave now.' And my program will quit."
+
+'Quazar asks for your name and provides a friendly greeting.
+INPUT "Can you tell me your name? ", name$
+PRINT name$; ", it is nice to meet you."
+
+'Activates the random number generator and variable statements.
+RANDOMIZE TIMER
+statements = 12
+
+'Set of 12 possible statements that Quazar can say to you during the conversation.
+DATA "That is so cool!"
+DATA "Wish I could do that."
+DATA "How does it feel to be human?"
+DATA "Do you have any brothers and sisters?"
+DATA "What is your favorite show to watch on TV?"
+DATA "I'm very glad you enjoy it."
+DATA "Where do you live?"
+DATA "How is the weather there?",
+DATA "Dang, it must be very nice!"
+DATA "We should stay in touch and meet again sometime."
+DATA "I'm sorry."
+DATA "That's a shame."
+
+'DO Loop executes, asking the user to say something to Quazar.
+DO
+    'User speaks to Quazar.
+    INPUT ">>>", user$
+    'Variable n is an random integer between 1 and 12.
+    n = INT(RND * statements)
+    RESTORE
+    'For Loop reads each of the 12 DATA statements.
+    FOR n = 1 TO n
+        READ answer$
+    NEXT
+    'Quazar provides the user a random answer from one of the 12 DATA statements.
+    PRINT answer$
+'Loop stops executing when the user tells Quazar "I have to leave now."
+LOOP UNTIL user$ = "I have to leave now."
+
+'Quazar says his goodbye to end the conversation.  
+PRINT "It was nice talking to you, " + name$ + "."
+PRINT "Have a good day!"
+
+'This is the user's chance to say goodbye to Quazar.
+INPUT ">>>", bye$
+
+'Quazar's final goodbye.
+PRINT "Good bye."
+
