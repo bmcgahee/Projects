@@ -55,5 +55,5 @@ PRINT "Have a good day!"
 INPUT ">>>", bye$
 
 'Quazar's final goodbye.
-PRINT "Good bye."
+PRINT "Goodbye."
 
