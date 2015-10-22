@@ -1,0 +1,46 @@
+USE SportsClub
+
+CREATE TABLE Participants(ID int NOT NULL, Activity varchar(50) NOT NULL, PRIMARY KEY (ID))
+INSERT INTO Participants(ID, Activity)
+VALUES(257, 'Golf'),
+      (396, 'Tennis'),
+      (023, 'Swimming'),
+      (148, 'Basketball')
+
+CREATE TABLE Members(Member varchar(50) NOT NULL, ID int NOT NULL, FOREIGN KEY (ID) REFERENCES Participants(ID))
+INSERT INTO Members(Member, ID)
+VALUES('Mark Lyons', 023),
+      ('Jim Jackson', 148),
+      ('Doris Hillman', 257),
+      ('Susanne Norris', 396)
+
+INNER JOIN QUERIES:
+
+SELECT Members.Member, Participants.Activity
+FROM Members INNER JOIN Participants
+ON Members.ID = Participants.ID
+
+SELECT Members.ID, Members.Member, Participants.Activity
+FROM Members INNER JOIN Participants
+ON Members.ID = Participants.ID
+ORDER BY Members.Member; 
+
+WHERE CLAUSE QUERIES:
+
+SELECT Members.ID, Members.Member
+FROM Members
+WHERE ID >= 100 AND ID <= 300
+
+SELECT ID
+FROM Participants
+WHERE Activity = 'Golf'
+
+ORDER BY QUERIES:
+
+SELECT * 
+FROM Participants
+ORDER BY Activity ASC
+
+SELECT Member
+FROM Members
+ORDER BY Member DESC
