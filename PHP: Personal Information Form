@@ -1,0 +1,123 @@
+<html>
+<body>
+
+<?php
+
+$nameError = "";
+$emailError = "";
+$phoneError = "";
+$addressError = "";
+$zipcodeError = "";
+
+$name = "";
+$email = "";
+$Email = "";
+$phone = "";
+$address = "";
+$zipcode = "";
+
+function checkField($string, $type, $length) {
+     $type = 'is_'.$type;
+
+     if(!$type($string)) {
+	return FALSE;
+     }
+     else if(empty($string)) {
+	return FALSE;
+     }
+     else if(strlen($string) > $length) {
+	return FALSE;
+     }
+     else {
+	return TRUE;
+     }
+}
+
+function checkPhone($string, $type, $length) {
+      $type = 'is_'.$type;
+ 
+      if(!$type($string)) {
+	 return FALSE;
+      }
+      else if(empty($string)) {
+	 return FALSE;
+      }
+      else if(strlen($string) > $length || strlen($string) < $length) {
+	 return FALSE;
+      }
+      else {
+	 return TRUE;
+      }
+
+}
+
+function checkEmail($email, $type, $length) {
+    return preg_match('/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/iU', $email) ? TRUE : FALSE;
+}
+
+function checkZipcode($string, $type, $length) {
+      $type = 'is_'.$type;
+ 
+      if(!$type($string)) {
+	 return FALSE;
+      }
+      else if(empty($string)) {
+	 return FALSE;
+      }
+      else if(strlen($string) > $length || strlen($string) < $length) {
+	 return FALSE;
+      }
+      else {
+	 return TRUE;
+      }
+}
+
+if(isset($_POST["name"]) && checkField($_POST["name"], 'string', 50) == TRUE) {
+	$name = $_POST["name"];
+	echo 'Your name is: '.$name.'<br />';
+}
+else {
+	$nameError = "Invalid Name";
+	echo $nameError.'<br />';
+}
+
+if(isset($_POST["email"]) && checkEmail($_POST["email"], 'string', 50) == TRUE) {
+	$email = $_POST["email"];
+	echo 'Your email address is: '.$email.'<br />';
+}
+else {
+	$emailError = "Invalid Email:  Email should be in the form like JohnSmith@yahoo.com";
+	echo $emailError.'<br />';
+}
+
+if(isset($_POST["phone"]) && checkPhone($_POST["phone"], 'string', 10) == TRUE) {
+	$phone = $_POST["phone"];
+	echo 'Your phone number is: '.$phone.'<br />';
+}
+else {
+	$phoneError = "Invalid Phone Number:  Phone number should contain exactly 10 characters (digits), including the area code";
+	echo $phoneError.'<br />';
+}
+
+if(isset($_POST["address"]) && checkField($_POST["address"], 'string', 100) == TRUE) {
+	$address = $_POST["address"];
+	echo 'Your address is: '.$address.'<br />';
+}
+else {
+	$addressError = "Invalid Address";
+	echo $addressError.'<br />';
+}
+
+if(isset($_POST["zipcode"]) && checkPhone($_POST["zipcode"], 'string', 5) == TRUE) {
+	$zipcode = $_POST["zipcode"];
+	echo 'Your zipcode is: '.$zipcode.'<br />';
+}
+else {
+	$zipcodeError = "Invalid Zipcode: Zipcode should contain exactly 5 characters (digits)";
+	echo $zipcodeError.'<br />';
+}
+
+?>
+
+</body>
+</html>
