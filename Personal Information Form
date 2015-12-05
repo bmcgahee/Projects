@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Web Form</title>
+</head>
+<body>
+
+<h1>Personal Information Form</h1>
+<h3><i>Please fill out all of the following fields and click the submit button.</i></h3>
+<h3><i>Don't use hyphens, parentheses, or periods in the Phone field.</i></h3>
+<h3><i>THANKS!</i></h3>
+
+<form action = "hello.php" method = "post">
+Name: <input type = "text" name = "name"><br><br>
+Email: <input type = "text" name = "email"><br><br>
+Phone: <input type = "text" name = "phone"><br><br>
+Address: <input type = "text" name = "address"><br><br>
+Zipcode: <input type = "text" name = "zipcode"><br><br>
+<input type = "submit">
+</form>
+
+</body>
+</html>
