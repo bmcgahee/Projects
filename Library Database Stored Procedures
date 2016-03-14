@@ -1,0 +1,24 @@
+STORED PROCEDURES:  DB LIBRARY
+
+CREATE PROCEDURE cardNumbersNames @minCard INT, @maxCard INT
+AS
+SELECT CardNo, Name
+FROM dbLibrary.dbo.Borrower
+WHERE CardNo >= @minCard AND CardNo <= @maxCard
+EXEC cardNumbersNames '1', '5'
+
+CREATE PROCEDURE getNumberOfCopies @branch INT
+AS
+SELECT *
+FROM dbLibrary.dbo.Book_Copies
+WHERE BranchId = @branch
+EXEC getNumberOfCopies '2'
+
+CREATE PROCEDURE getTitleOfBook @authorName varchar(25)
+AS
+SELECT Title
+FROM dbLibrary.dbo.Book_Authors FULL JOIN dbLibrary.dbo.Book
+ON dbLibrary.DBO.Book_Authors.BookId = dbLibrary.dbo.Book.BookId
+WHERE AuthorName = @authorName
+EXEC getTitleOfBook 'Stephen King'
+
